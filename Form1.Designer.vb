@@ -39,7 +39,6 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PrinterQueTableAdapter = New LabelPrinter.ooprod_otherDataSetTableAdapters.PrinterQueTableAdapter()
         Me.TableAdapterManager = New LabelPrinter.ooprod_otherDataSetTableAdapters.TableAdapterManager()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.PrinterQueBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ooprod_otherDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinterQueDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,21 +161,11 @@ Partial Class Form1
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.UpdateOrder = LabelPrinter.ooprod_otherDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "LabelPrinter.lbl_cutslabel.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(42, 389)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(396, 246)
-        Me.ReportViewer1.TabIndex = 7
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(620, 647)
-        Me.Controls.Add(Me.ReportViewer1)
+        Me.ClientSize = New System.Drawing.Size(620, 392)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox1)

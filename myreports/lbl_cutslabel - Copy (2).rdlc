@@ -156,84 +156,19 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="Textbox11">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>testing</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>.</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Bottome</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox11</rd:DefaultName>
-            <Top>0.17708in</Top>
-            <Left>0.19667in</Left>
-            <Height>0.82292in</Height>
-            <Width>3.29167in</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.98958in</Width>
+                  <Width>2.13888in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.02083in</Width>
+                  <Width>1.17013in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.29841in</Height>
+                  <Height>0.31656in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -275,7 +210,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.06926in</Height>
+                  <Height>0.08741in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -342,7 +277,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.07446in</Height>
+                  <Height>0.09261in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -384,7 +319,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="L: " &amp; Fields!height.Value</Value>
+                                  <Value>="H: " &amp; Fields!height.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -404,12 +339,13 @@
                             <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.07446in</Height>
+                  <Height>0.09261in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -420,7 +356,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="Box Loc: " &amp; Fields!BoxNumber.Value</Value>
+                                  <Value>="Box ID: " &amp; Fields!BoxNumber.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -476,7 +412,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.07446in</Height>
+                  <Height>0.09261in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -543,7 +479,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.23185in</Height>
+                  <Height>0.25in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -604,7 +540,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.28125in</Size>
+                    <Size>0.43055in</Size>
                     <CellContents>
                       <Textbox Name="piece_id">
                         <KeepTogether>true</KeepTogether>
@@ -663,11 +599,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.17708in</Top>
-            <Left>0.19667in</Left>
-            <Height>0.82292in</Height>
-            <Width>3.29167in</Width>
-            <ZIndex>1</ZIndex>
+            <Height>0.9318in</Height>
+            <Width>3.73956in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -675,16 +608,15 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1in</Height>
+        <Height>1.26041in</Height>
         <Style />
       </Body>
-      <Width>4in</Width>
+      <Width>3.73957in</Width>
       <Page>
-        <PageHeight>1in</PageHeight>
+        <PageHeight>4in</PageHeight>
         <PageWidth>4in</PageWidth>
         <InteractiveHeight>1in</InteractiveHeight>
         <InteractiveWidth>4in</InteractiveWidth>
-        <TopMargin>0.125in</TopMargin>
         <Style />
       </Page>
     </ReportSection>

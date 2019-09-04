@@ -42,7 +42,7 @@ Public Class Form1
         '  Me.ReportViewer1.RefreshReport()
 
 
-        Me.ReportViewer1.RefreshReport()
+        ''Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -67,7 +67,7 @@ Public Class Form1
 
                     Print(qty)
                     sql = "Delete from ooprod_other.dbo.PrinterQue where id=" & queid
-                   ' ExecuteSQLStmt(sql)
+                    ExecuteSQLStmt(sql)
                 Case "VENDORSKUPO"
                     Dim report As New LocalReport()
                     report.ReportPath = (Application.StartupPath & "\myreports\Rpt_SKUPO.rdlc")
@@ -82,7 +82,7 @@ Public Class Form1
                 Case "CUTSPIECE"
 
 
-                    Me.ReportViewer1.RefreshReport()
+                    ' Me.ReportViewer1.RefreshReport()
 
                     'Exit Sub
 
@@ -96,7 +96,7 @@ Public Class Form1
 
                     Print(qty)
                     sql = "Delete from ooprod_other.dbo.PrinterQue where id=" & queid
-                    '  ExecuteSQLStmt(sql)
+                    ExecuteSQLStmt(sql)
             End Select
 
         Next
@@ -197,8 +197,7 @@ WHERE        (ooprod_other.dbo.PrinterQue.id = " & queid & ")"
         Dim deviceInfo As String = "<DeviceInfo>" &
             "<OutputFormat>EMF</OutputFormat>" &
                     "<PageWidth>4in</PageWidth>" &
-        "<PageHeight>1in</PageHeight>" &
-                                                  "</DeviceInfo>"
+        "<PageHeight>1in</PageHeight>" & "</DeviceInfo>"
 
         '"<MarginTop>0.1in</MarginTop>" &
         '        "<MarginLeft>-4.0in</MarginLeft>" &
