@@ -17,13 +17,13 @@
                          vendorproducts.id AS SKUID, ooprod_other.dbo.PrinterQue.PrinterName, ooprod_other.dbo.PrinterQue.POLineID, ooprod_other.dbo.PrinterQue.PONumber AS Expr1, ooprod_other.dbo.PrinterQue.LOCATIONID AS Expr2, 
                          ooprod_other.dbo.PrinterQue.CutsPieceID, ooprod_other.dbo.PrinterQue.skuid AS Expr3, derivedtbl_1.inventory_id, derivedtbl_1.FromInvTransID, derivedtbl_1.TransDate, derivedtbl_1.width, derivedtbl_1.height, 
                          derivedtbl_1.material_qty, derivedtbl_1.full_panel, derivedtbl_1.note, derivedtbl_1.piece_id, derivedtbl_1.ColorID, derivedtbl_1.BoxNumber, derivedtbl_1.Loc_RowRack, derivedtbl_1.Loc_ColShelf, derivedtbl_1.Loc_Bin, 
-                         derivedtbl_1.Loc_Shelf
+                         derivedtbl_1.Loc_Shelf, derivedtbl_1.cellsize
 FROM            ooprod_other.dbo.PrinterQue LEFT OUTER JOIN
                              (SELECT        ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.LabelPrinted, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.inventory_id, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.FromInvTransID, 
                                                          CAST(ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.TransDate AS DATE) AS TransDate, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.width, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.height, 
                                                          ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.material_qty, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.full_panel, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.note, 
                                                          ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.piece_id, products.ColorID, BoxLocations.BoxNumber, BoxLocations.id, warehouse.Loc_RowRack, warehouse.Loc_ColShelf, warehouse.Loc_Bin, 
-                                                         warehouse.Loc_Shelf, PrinterQue_1.id AS Quid
+                                                         warehouse.Loc_Shelf, PrinterQue_1.id AS Quid, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.cellsize
                                FROM            ooprod_other.dbo.PrinterQue AS PrinterQue_1 INNER JOIN
                                                          ooprod_CutsInv.dbo.tbl_cuts_inventory_2010 ON PrinterQue_1.CutsPieceID = ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.piece_id LEFT OUTER JOIN
                                                              (SELECT        id, LocationName, LocationDesc, Loc_SubLoc1, Loc_SubLoc2, Loc_RowRack, Loc_ColShelf, Loc_Bin, Loc_Shelf, TEMP, EntityKey, BranchID, CaraYN
@@ -82,6 +82,7 @@ FROM            ooprod_other.dbo.PrinterQue LEFT OUTER JOIN
               <Mapping SourceColumn="Loc_ColShelf" DataSetColumn="Loc_ColShelf" />
               <Mapping SourceColumn="Loc_Bin" DataSetColumn="Loc_Bin" />
               <Mapping SourceColumn="Loc_Shelf" DataSetColumn="Loc_Shelf" />
+              <Mapping SourceColumn="cellsize" DataSetColumn="cellsize" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -145,7 +146,7 @@ FROM            ooprod_other.dbo.PrinterQue INNER JOIN
   <xs:element name="ooprod_otherDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ooprod_otherDataSet" msprop:Generator_UserDSName="ooprod_otherDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="PrinterQue" msprop:Generator_TableClassName="PrinterQueDataTable" msprop:Generator_TableVarName="tablePrinterQue" msprop:Generator_TablePropName="PrinterQue" msprop:Generator_RowDeletingName="PrinterQueRowDeleting" msprop:Generator_RowChangingName="PrinterQueRowChanging" msprop:Generator_RowEvHandlerName="PrinterQueRowChangeEventHandler" msprop:Generator_RowDeletedName="PrinterQueRowDeleted" msprop:Generator_UserTableName="PrinterQue" msprop:Generator_RowChangedName="PrinterQueRowChanged" msprop:Generator_RowEvArgName="PrinterQueRowChangeEvent" msprop:Generator_RowClassName="PrinterQueRow">
+        <xs:element name="PrinterQue" msprop:Generator_TableClassName="PrinterQueDataTable" msprop:Generator_TableVarName="tablePrinterQue" msprop:Generator_RowChangedName="PrinterQueRowChanged" msprop:Generator_TablePropName="PrinterQue" msprop:Generator_RowDeletingName="PrinterQueRowDeleting" msprop:Generator_RowChangingName="PrinterQueRowChanging" msprop:Generator_RowEvHandlerName="PrinterQueRowChangeEventHandler" msprop:Generator_RowDeletedName="PrinterQueRowDeleted" msprop:Generator_RowClassName="PrinterQueRow" msprop:Generator_UserTableName="PrinterQue" msprop:Generator_RowEvArgName="PrinterQueRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -251,10 +252,17 @@ FROM            ooprod_other.dbo.PrinterQue INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="cellsize" msprop:Generator_ColumnVarNameInTable="columncellsize" msprop:Generator_ColumnPropNameInRow="cellsize" msprop:Generator_ColumnPropNameInTable="cellsizeColumn" msprop:Generator_UserColumnName="cellsize" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CustsReportQuery" msprop:Generator_TableClassName="CustsReportQueryDataTable" msprop:Generator_TableVarName="tableCustsReportQuery" msprop:Generator_TablePropName="CustsReportQuery" msprop:Generator_RowDeletingName="CustsReportQueryRowDeleting" msprop:Generator_RowChangingName="CustsReportQueryRowChanging" msprop:Generator_RowEvHandlerName="CustsReportQueryRowChangeEventHandler" msprop:Generator_RowDeletedName="CustsReportQueryRowDeleted" msprop:Generator_UserTableName="CustsReportQuery" msprop:Generator_RowChangedName="CustsReportQueryRowChanged" msprop:Generator_RowEvArgName="CustsReportQueryRowChangeEvent" msprop:Generator_RowClassName="CustsReportQueryRow">
+        <xs:element name="CustsReportQuery" msprop:Generator_TableClassName="CustsReportQueryDataTable" msprop:Generator_TableVarName="tableCustsReportQuery" msprop:Generator_RowChangedName="CustsReportQueryRowChanged" msprop:Generator_TablePropName="CustsReportQuery" msprop:Generator_RowDeletingName="CustsReportQueryRowDeleting" msprop:Generator_RowChangingName="CustsReportQueryRowChanging" msprop:Generator_RowEvHandlerName="CustsReportQueryRowChangeEventHandler" msprop:Generator_RowDeletedName="CustsReportQueryRowDeleted" msprop:Generator_RowClassName="CustsReportQueryRow" msprop:Generator_UserTableName="CustsReportQuery" msprop:Generator_RowEvArgName="CustsReportQueryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LabelPrinted" msprop:Generator_ColumnVarNameInTable="columnLabelPrinted" msprop:Generator_ColumnPropNameInRow="LabelPrinted" msprop:Generator_ColumnPropNameInTable="LabelPrintedColumn" msprop:Generator_UserColumnName="LabelPrinted" type="xs:boolean" minOccurs="0" />

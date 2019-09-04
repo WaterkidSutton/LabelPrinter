@@ -142,13 +142,13 @@ WHERE        (ooprod_other.dbo.PrinterQue.id = " & queid & ")
                          vendorproducts.id AS SKUID, ooprod_other.dbo.PrinterQue.PrinterName, ooprod_other.dbo.PrinterQue.POLineID, ooprod_other.dbo.PrinterQue.PONumber AS Expr1, ooprod_other.dbo.PrinterQue.LOCATIONID AS Expr2, 
                          ooprod_other.dbo.PrinterQue.CutsPieceID, ooprod_other.dbo.PrinterQue.skuid AS Expr3, derivedtbl_1.inventory_id, derivedtbl_1.FromInvTransID, derivedtbl_1.TransDate, derivedtbl_1.width, derivedtbl_1.height, 
                          derivedtbl_1.material_qty, derivedtbl_1.full_panel, derivedtbl_1.note, derivedtbl_1.piece_id, derivedtbl_1.ColorID, derivedtbl_1.BoxNumber, derivedtbl_1.Loc_RowRack, derivedtbl_1.Loc_ColShelf, derivedtbl_1.Loc_Bin, 
-                         derivedtbl_1.Loc_Shelf
+                         derivedtbl_1.Loc_Shelf, derivedtbl_1.cellsize
 FROM            ooprod_other.dbo.PrinterQue LEFT OUTER JOIN
                              (SELECT        ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.LabelPrinted, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.inventory_id, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.FromInvTransID, 
                                                          CAST(ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.TransDate AS DATE) AS TransDate, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.width, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.height, 
                                                          ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.material_qty, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.full_panel, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.note, 
                                                          ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.piece_id, products.ColorID, BoxLocations.BoxNumber, BoxLocations.id, warehouse.Loc_RowRack, warehouse.Loc_ColShelf, warehouse.Loc_Bin, 
-                                                         warehouse.Loc_Shelf, PrinterQue_1.id AS Quid
+                                                         warehouse.Loc_Shelf, PrinterQue_1.id AS Quid, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.cellsize
                                FROM            ooprod_other.dbo.PrinterQue AS PrinterQue_1 INNER JOIN
                                                          ooprod_CutsInv.dbo.tbl_cuts_inventory_2010 ON PrinterQue_1.CutsPieceID = ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.piece_id LEFT OUTER JOIN
                                                              (SELECT        id, LocationName, LocationDesc, Loc_SubLoc1, Loc_SubLoc2, Loc_RowRack, Loc_ColShelf, Loc_Bin, Loc_Shelf, TEMP, EntityKey, BranchID, CaraYN

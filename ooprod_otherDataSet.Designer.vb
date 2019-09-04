@@ -380,6 +380,8 @@ Partial Public Class ooprod_otherDataSet
         
         Private columnLoc_Shelf As Global.System.Data.DataColumn
         
+        Private columncellsize As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -664,6 +666,14 @@ Partial Public Class ooprod_otherDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property cellsizeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncellsize
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -728,9 +738,10 @@ Partial Public Class ooprod_otherDataSet
                     ByVal Loc_RowRack As String,  _
                     ByVal Loc_ColShelf As String,  _
                     ByVal Loc_Bin As String,  _
-                    ByVal Loc_Shelf As String) As PrinterQueRow
+                    ByVal Loc_Shelf As String,  _
+                    ByVal cellsize As String) As PrinterQueRow
             Dim rowPrinterQueRow As PrinterQueRow = CType(Me.NewRow,PrinterQueRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, VendorSKU, EmployeeKey, SubmitTime, QtytoPrint, DoctoPrint, ReorderDescription, PONumber, LOCATIONID, Nothing, PrinterName, POLineID, Expr1, Expr2, CutsPieceID, Expr3, inventory_id, FromInvTransID, TransDate, width, height, material_qty, full_panel, note, Nothing, ColorID, BoxNumber, Loc_RowRack, Loc_ColShelf, Loc_Bin, Loc_Shelf}
+            Dim columnValuesArray() As Object = New Object() {Nothing, VendorSKU, EmployeeKey, SubmitTime, QtytoPrint, DoctoPrint, ReorderDescription, PONumber, LOCATIONID, Nothing, PrinterName, POLineID, Expr1, Expr2, CutsPieceID, Expr3, inventory_id, FromInvTransID, TransDate, width, height, material_qty, full_panel, note, Nothing, ColorID, BoxNumber, Loc_RowRack, Loc_ColShelf, Loc_Bin, Loc_Shelf, cellsize}
             rowPrinterQueRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPrinterQueRow)
             Return rowPrinterQueRow
@@ -784,6 +795,7 @@ Partial Public Class ooprod_otherDataSet
             Me.columnLoc_ColShelf = MyBase.Columns("Loc_ColShelf")
             Me.columnLoc_Bin = MyBase.Columns("Loc_Bin")
             Me.columnLoc_Shelf = MyBase.Columns("Loc_Shelf")
+            Me.columncellsize = MyBase.Columns("cellsize")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -851,6 +863,8 @@ Partial Public Class ooprod_otherDataSet
             MyBase.Columns.Add(Me.columnLoc_Bin)
             Me.columnLoc_Shelf = New Global.System.Data.DataColumn("Loc_Shelf", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLoc_Shelf)
+            Me.columncellsize = New Global.System.Data.DataColumn("cellsize", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncellsize)
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
             Me.columnid.AutoIncrementStep = -1
@@ -879,6 +893,7 @@ Partial Public Class ooprod_otherDataSet
             Me.columnLoc_ColShelf.MaxLength = 50
             Me.columnLoc_Bin.MaxLength = 50
             Me.columnLoc_Shelf.MaxLength = 50
+            Me.columncellsize.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1984,6 +1999,21 @@ Partial Public Class ooprod_otherDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property cellsize() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePrinterQue.cellsizeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cellsize' in table 'PrinterQue' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePrinterQue.cellsizeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsVendorSKUNull() As Boolean
             Return Me.IsNull(Me.tablePrinterQue.VendorSKUColumn)
         End Function
@@ -2340,6 +2370,18 @@ Partial Public Class ooprod_otherDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetLoc_ShelfNull()
             Me(Me.tablePrinterQue.Loc_ShelfColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IscellsizeNull() As Boolean
+            Return Me.IsNull(Me.tablePrinterQue.cellsizeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetcellsizeNull()
+            Me(Me.tablePrinterQue.cellsizeColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -2998,6 +3040,7 @@ Namespace ooprod_otherDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Loc_ColShelf", "Loc_ColShelf")
             tableMapping.ColumnMappings.Add("Loc_Bin", "Loc_Bin")
             tableMapping.ColumnMappings.Add("Loc_Shelf", "Loc_Shelf")
+            tableMapping.ColumnMappings.Add("cellsize", "cellsize")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -3028,76 +3071,77 @@ Namespace ooprod_otherDataSetTableAdapters
                 "edtbl_1.height, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         derivedtbl_1.material_qty, derivedtbl"& _ 
                 "_1.full_panel, derivedtbl_1.note, derivedtbl_1.piece_id, derivedtbl_1.ColorID, d"& _ 
                 "erivedtbl_1.BoxNumber, derivedtbl_1.Loc_RowRack, derivedtbl_1.Loc_ColShelf, deri"& _ 
-                "vedtbl_1.Loc_Bin, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         derivedtbl_1.Loc_Shelf"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
-                "     ooprod_other.dbo.PrinterQue LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             ("& _ 
-                "SELECT        ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.LabelPrinted, ooprod_Cu"& _ 
-                "tsInv.dbo.tbl_cuts_inventory_2010.inventory_id, ooprod_CutsInv.dbo.tbl_cuts_inve"& _ 
-                "ntory_2010.FromInvTransID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                   "& _ 
-                "      CAST(ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.TransDate AS DATE) AS Tran"& _ 
-                "sDate, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.width, ooprod_CutsInv.dbo.tbl_"& _ 
-                "cuts_inventory_2010.height, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                  "& _ 
-                "       ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.material_qty, ooprod_CutsInv.d"& _ 
-                "bo.tbl_cuts_inventory_2010.full_panel, ooprod_CutsInv.dbo.tbl_cuts_inventory_201"& _ 
-                "0.note, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         ooprod_CutsIn"& _ 
-                "v.dbo.tbl_cuts_inventory_2010.piece_id, products.ColorID, BoxLocations.BoxNumber"& _ 
-                ", BoxLocations.id, warehouse.Loc_RowRack, warehouse.Loc_ColShelf, warehouse.Loc_"& _ 
-                "Bin, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         warehouse.Loc_Sh"& _ 
-                "elf, PrinterQue_1.id AS Quid"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               FROM            oop"& _ 
-                "rod_other.dbo.PrinterQue AS PrinterQue_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                           "& _ 
-                "                              ooprod_CutsInv.dbo.tbl_cuts_inventory_2010 ON Prin"& _ 
-                "terQue_1.CutsPieceID = ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.piece_id LEFT "& _ 
-                "OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                             (SELECT"& _ 
-                "        id, LocationName, LocationDesc, Loc_SubLoc1, Loc_SubLoc2, Loc_RowRack, L"& _ 
-                "oc_ColShelf, Loc_Bin, Loc_Shelf, TEMP, EntityKey, BranchID, CaraYN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "                                                   FROM            ooprod_Invent"& _ 
-                "oryTrans.dbo.InvLocations) AS warehouse INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                            "& _ 
-                "                                 (SELECT        id, LocationID_Col_Row, BoxNumbe"& _ 
-                "r"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                               FROM          "& _ 
-                "  ooprod_CutsInv.dbo.BoxLocations AS BoxLocations_1) AS BoxLocations ON warehous"& _ 
-                "e.id = BoxLocations.LocationID_Col_Row ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                    "& _ 
-                "                     ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.BoxLocationID = "& _ 
-                "BoxLocations.id LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                               "& _ 
-                "              (SELECT        id, name, description, minx, maxx, miny, maxy, defa"& _ 
-                "ultdiscount, glacct, [glacct-d], division_id, rstypefilter, exproduct, maxgroup,"& _ 
-                " productgroup_id, onlineorder, image, id1, TaxCodeClass, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                "                                                                    Instl_TimeDi"& _ 
-                "v, AssemblyYN, TrackInventoryYN, Building, Location, VendorID, ProductID, Reorde"& _ 
-                "rDescription, OurDescription, ColorID, Catagory, PriceGrid, UnitsInStockWhs, Uni"& _ 
-                "tsInStockIhs, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                                "& _ 
-                "                         UnitsOnFloor, UnitsInStockCtr1, UnitsInStockCtr2, Units"& _ 
-                "OnFloorCtr3, DiscTurnils, UnitsOnOrder, ReorderLevel, InventoryItem, Discontinue"& _ 
-                "d, Discount, ShipDate, Notes, BulkPrice1, BulkUnit, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                          "& _ 
-                "                                                               BulkPrice, SubBul"& _ 
-                "kUnit, SubBulkQtyPerUnit, BulkQtyPerUnit, Length, Cost, Unit, Reorder, ReOrderQt"& _ 
-                "y, P1, C1, C2, C3, V1, V2, CD, ML, PL, DL, AG, CP, C2HP, W2HP, F2HP, P2HP, M2HP,"& _ 
-                " M1BulkCost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                                 "& _ 
-                "                        M2SmCost, PMSmUnit, PmInvUnit, PmBulkUnit, PmInvQty, PmB"& _ 
-                "ulkQty, PmDefaultBulk, MonthStart, UnitsReceived, UnitsUsed, MonthEnd, SoftShade"& _ 
-                "Dept, VerticalDept, MiniBlindDept, DeluxeDept, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               "& _ 
-                "                                                          DraperyDept, BathroomD"& _ 
-                "ept, ShelvingDept, OfficeDept, [Tools&Maint], [Shipping&Packaging], Filter, Ware"& _ 
-                "houseLabel, Request, RequestQty, Photo, Request#, [Rod Size], [Drop], Width, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "vedtbl_1.Loc_Bin, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         derivedtbl_1.Loc_Shelf, derivedtbl_"& _ 
+                "1.cellsize"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ooprod_other.dbo.PrinterQue LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                      (SELECT        ooprod_CutsInv.dbo.tbl_cuts_inventory_2010."& _ 
+                "LabelPrinted, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.inventory_id, ooprod_Cu"& _ 
+                "tsInv.dbo.tbl_cuts_inventory_2010.FromInvTransID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                            "& _ 
+                "                             CAST(ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.Tra"& _ 
+                "nsDate AS DATE) AS TransDate, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.width, "& _ 
+                "ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.height, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                           "& _ 
+                "                              ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.materia"& _ 
+                "l_qty, ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.full_panel, ooprod_CutsInv.dbo"& _ 
+                ".tbl_cuts_inventory_2010.note, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                               "& _ 
+                "          ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.piece_id, products.ColorID,"& _ 
+                " BoxLocations.BoxNumber, BoxLocations.id, warehouse.Loc_RowRack, warehouse.Loc_C"& _ 
+                "olShelf, warehouse.Loc_Bin, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                  "& _ 
+                "       warehouse.Loc_Shelf, PrinterQue_1.id AS Quid, ooprod_CutsInv.dbo.tbl_cuts"& _ 
+                "_inventory_2010.cellsize"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               FROM            ooprod_"& _ 
+                "other.dbo.PrinterQue AS PrinterQue_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               "& _ 
+                "                          ooprod_CutsInv.dbo.tbl_cuts_inventory_2010 ON PrinterQ"& _ 
+                "ue_1.CutsPieceID = ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.piece_id LEFT OUTE"& _ 
+                "R JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                             (SELECT    "& _ 
+                "    id, LocationName, LocationDesc, Loc_SubLoc1, Loc_SubLoc2, Loc_RowRack, Loc_C"& _ 
+                "olShelf, Loc_Bin, Loc_Shelf, TEMP, EntityKey, BranchID, CaraYN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "                                               FROM            ooprod_InventoryT"& _ 
+                "rans.dbo.InvLocations) AS warehouse INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                "& _ 
+                "                             (SELECT        id, LocationID_Col_Row, BoxNumber"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                                                              FROM            oo"& _ 
+                "prod_CutsInv.dbo.BoxLocations AS BoxLocations_1) AS BoxLocations ON warehouse.id"& _ 
+                " = BoxLocations.LocationID_Col_Row ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                        "& _ 
+                "                 ooprod_CutsInv.dbo.tbl_cuts_inventory_2010.BoxLocationID = BoxL"& _ 
+                "ocations.id LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                   "& _ 
+                "          (SELECT        id, name, description, minx, maxx, miny, maxy, defaultd"& _ 
+                "iscount, glacct, [glacct-d], division_id, rstypefilter, exproduct, maxgroup, pro"& _ 
+                "ductgroup_id, onlineorder, image, id1, TaxCodeClass, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "                                                                Instl_TimeDiv, A"& _ 
+                "ssemblyYN, TrackInventoryYN, Building, Location, VendorID, ProductID, ReorderDes"& _ 
+                "cription, OurDescription, ColorID, Catagory, PriceGrid, UnitsInStockWhs, UnitsIn"& _ 
+                "StockIhs, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                                    "& _ 
+                "                     UnitsOnFloor, UnitsInStockCtr1, UnitsInStockCtr2, UnitsOnFl"& _ 
+                "oorCtr3, DiscTurnils, UnitsOnOrder, ReorderLevel, InventoryItem, Discontinued, D"& _ 
+                "iscount, ShipDate, Notes, BulkPrice1, BulkUnit, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                              "& _ 
+                "                                                           BulkPrice, SubBulkUni"& _ 
+                "t, SubBulkQtyPerUnit, BulkQtyPerUnit, Length, Cost, Unit, Reorder, ReOrderQty, P"& _ 
+                "1, C1, C2, C3, V1, V2, CD, ML, PL, DL, AG, CP, C2HP, W2HP, F2HP, P2HP, M2HP, M1B"& _ 
+                "ulkCost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                                     "& _ 
+                "                    M2SmCost, PMSmUnit, PmInvUnit, PmBulkUnit, PmInvQty, PmBulkQ"& _ 
+                "ty, PmDefaultBulk, MonthStart, UnitsReceived, UnitsUsed, MonthEnd, SoftShadeDept"& _ 
+                ", VerticalDept, MiniBlindDept, DeluxeDept, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                   "& _ 
+                "                                                      DraperyDept, BathroomDept,"& _ 
+                " ShelvingDept, OfficeDept, [Tools&Maint], [Shipping&Packaging], Filter, Warehous"& _ 
+                "eLabel, Request, RequestQty, Photo, Request#, [Rod Size], [Drop], Width, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
                 "                                                                                "& _ 
-                "        WireTracking, LineID, RollerShadeDept, WovenWoodDept, a_qty, a_reorder, "& _ 
-                "b_qty, b_reorder, c_qty, c_reorder, location2, location3, PiecesPerUnit, EntityK"& _ 
-                "ey, ACTIVE, SingleRetailPrice, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                               "& _ 
-                "                                          SimplePricing, ShopID, TEMPSKU, NeedsM"& _ 
-                "easured, NeedsInstalled, IndvUnit, UsesWidth, UsesDrop, MeasureIncrement, Produc"& _ 
-                "t_Type"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                               FROM     "& _ 
-                "       products AS products_1) AS products ON ooprod_CutsInv.dbo.tbl_cuts_invent"& _ 
-                "ory_2010.inventory_id = products.id) AS derivedtbl_1 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   ooprod_other.dbo.PrinterQue.id = derivedtbl_1.Quid LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
-                "                    (SELECT        id, VendorID, VendorSKU, VendorName, VendorPr"& _ 
-                "ice, VendorQtyPer, PerDescr, ProductID, BulkPrice1, BulkUnit, BulkPrice, Cost, S"& _ 
-                "ubBulkUnit, SubBulkQtyPerUnit, BulkQtyPerUnit, PMSmUnit, PmInvUnit, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "                                               PmBulkUnit, PmInvQty, PmBulkQty, "& _ 
-                "PmDefaultBulk, M1BulkCost, Discount, ReorderDescription, UnitsInStockIhs, Discon"& _ 
-                "tinued, NOT_Recomend, Vend_Ref1, Vend_CatRef, Vend_CatYear, Vend_CatPage, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
-                "                                                     PMSmQty, VendorDefPackaging"& _ 
-                ", DiscountPercent, Vend_ColorID, Temp_Updated, Def_Vend_Level"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "              FROM            ooprod_InventoryTrans.dbo.VendorProducts AS Vendor"& _ 
-                "Products_1) AS vendorproducts ON ooprod_other.dbo.PrinterQue.skuid = vendorprodu"& _ 
-                "cts.id"
+                "    WireTracking, LineID, RollerShadeDept, WovenWoodDept, a_qty, a_reorder, b_qt"& _ 
+                "y, b_reorder, c_qty, c_reorder, location2, location3, PiecesPerUnit, EntityKey, "& _ 
+                "ACTIVE, SingleRetailPrice, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                   "& _ 
+                "                                      SimplePricing, ShopID, TEMPSKU, NeedsMeasu"& _ 
+                "red, NeedsInstalled, IndvUnit, UsesWidth, UsesDrop, MeasureIncrement, Product_Ty"& _ 
+                "pe"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                               FROM         "& _ 
+                "   products AS products_1) AS products ON ooprod_CutsInv.dbo.tbl_cuts_inventory_"& _ 
+                "2010.inventory_id = products.id) AS derivedtbl_1 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         o"& _ 
+                "oprod_other.dbo.PrinterQue.id = derivedtbl_1.Quid LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "                (SELECT        id, VendorID, VendorSKU, VendorName, VendorPrice,"& _ 
+                " VendorQtyPer, PerDescr, ProductID, BulkPrice1, BulkUnit, BulkPrice, Cost, SubBu"& _ 
+                "lkUnit, SubBulkQtyPerUnit, BulkQtyPerUnit, PMSmUnit, PmInvUnit, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "                                           PmBulkUnit, PmInvQty, PmBulkQty, PmDe"& _ 
+                "faultBulk, M1BulkCost, Discount, ReorderDescription, UnitsInStockIhs, Discontinu"& _ 
+                "ed, NOT_Recomend, Vend_Ref1, Vend_CatRef, Vend_CatYear, Vend_CatPage, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                                                 PMSmQty, VendorDefPackaging, Di"& _ 
+                "scountPercent, Vend_ColorID, Temp_Updated, Def_Vend_Level"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "          FROM            ooprod_InventoryTrans.dbo.VendorProducts AS VendorProd"& _ 
+                "ucts_1) AS vendorproducts ON ooprod_other.dbo.PrinterQue.skuid = vendorproducts."& _ 
+                "id"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
